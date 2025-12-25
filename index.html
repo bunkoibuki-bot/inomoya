@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Cinzel:wght@600;700&family=Oswald:wght@500&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -27,6 +28,7 @@
       },
     };
   </script>
+
   <style type="text/tailwindcss">
     :root {
       color-scheme: dark;
@@ -36,12 +38,11 @@
                   radial-gradient(circle at 80% 0%, rgba(255, 26, 26, 0.14), transparent 22%),
                   #050505;
       min-height: 100vh;
+      @apply font-body text-[#f5f5f5]; 
     }
-    @layer base {
-      body { @apply font-body text-[#f5f5f5]; }
-      h1, h2, h3, h4 { @apply font-heading tracking-wide; }
-      .en { @apply font-en tracking-[0.2em] uppercase; }
-    }
+    h1, h2, h3, h4 { @apply font-heading tracking-wide; }
+    .en { @apply font-en tracking-[0.2em] uppercase; }
+
     .grain {
       position: fixed;
       inset: 0;
@@ -63,6 +64,13 @@
       opacity: 1;
       transform: translateY(0);
     }
+    /* Reduced Motion Preference */
+    @media (prefers-reduced-motion: reduce) {
+      .fade-up { opacity: 1 !important; transform: none !important; }
+      .masonry-item:hover img { transform: none; }
+      .scroll-indicator::before { animation: none; }
+    }
+
     .masonry {
       column-count: 1;
       column-gap: 1.5rem;
@@ -74,6 +82,7 @@
       position: relative;
       overflow: hidden;
       border-radius: 18px;
+      margin-bottom: 1.5rem; /* Gap fix for masonry */
     }
     .masonry-item img {
       width: 100%;
@@ -113,21 +122,16 @@
       background: rgba(5, 5, 5, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
-    @media (prefers-reduced-motion: reduce) {
-      .fade-up { opacity: 1 !important; transform: none !important; }
-      .masonry-item:hover img { transform: none; }
-      .scroll-indicator::before { animation: none; }
-    }
   </style>
 </head>
 <body class="relative">
   <div class="grain"></div>
   <div class="fixed inset-0 pointer-events-none bg-[radial-gradient(circle_at_30%_50%,rgba(204,0,0,0.1),transparent_30%),radial-gradient(circle_at_70%_30%,rgba(255,26,26,0.08),transparent_26%)]"></div>
 
-  <header class="fixed top-0 left-0 right-0 z-20 nav-blur">
+  <header class="fixed top-0 left-0 right-0 z-50 nav-blur">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-b from-accent to-[#7a0000] grid place-items-center text-xs font-semibold tracking-[0.2em]">BTB</div>
+        <div class="w-10 h-10 rounded-full bg-gradient-to-b from-accent to-[#7a0000] grid place-items-center text-xs font-semibold tracking-[0.2em] text-white">BTB</div>
         <div>
           <p class="text-xs uppercase text-gray-300 en">born to blaze</p>
           <p class="text-sm font-heading tracking-[0.14em]">命の燃やし方展</p>
@@ -141,7 +145,7 @@
         <a class="hover:text-accent transition-colors" href="#book">Book</a>
         <a class="hover:text-accent transition-colors" href="#info">Info</a>
       </nav>
-      <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.18em] hover:translate-y-[-1px] transition">
+      <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.18em] hover:translate-y-[-1px] transition text-white">
         Ticket
         <span aria-hidden="true">→</span>
       </a>
@@ -152,40 +156,44 @@
     <section id="hero" class="min-h-screen relative flex items-center">
       <img src="./KV.jpg" alt="命の燃やし方展 キービジュアル" class="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-70">
       <div class="absolute inset-0 bg-gradient-to-b from-black via-[#050505]/70 to-[#050505]"></div>
+      
       <div class="max-w-6xl mx-auto px-6 w-full relative py-28 md:py-32 grid md:grid-cols-12 gap-10 items-center">
-        <div class="md:col-span-7 space-y-6 fade-up is-visible">
+        <div class="md:col-span-7 space-y-6 fade-up">
           <p class="en text-sm text-white/70">YAMATO SUZUKI</p>
           <h1 class="text-4xl md:text-5xl leading-tight tracking-wide">
             命の燃やし方展<br>
-            <span class="text-2xl md:text-3xl text-accent en block">BORN TO BLAZE</span>
+            <span class="text-2xl md:text-3xl text-accent en block mt-2">BORN TO BLAZE</span>
           </h1>
           <p class="text-lg leading-relaxed text-white/80 max-w-3xl">
             枠に捉われない挑戦を重ねてきた鈴木大飛。その人生観と熱量を、「漆黒」と「赤」の空間に封じ込める。ページをめくるように、言葉と光があなたの命へ火を灯す。
           </p>
-          <div class="flex flex-wrap gap-4">
-            <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.16em] shadow-[0_15px_45px_rgba(204,0,0,0.45)] hover:translate-y-[-1px] transition">
+          
+          <div class="flex flex-wrap gap-4 py-4">
+            <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.16em] shadow-[0_15px_45px_rgba(204,0,0,0.45)] hover:translate-y-[-1px] transition text-white">
               チケット購入はこちら
             </a>
             <a href="#book" class="px-6 py-3 rounded-full border border-white/30 text-sm en tracking-[0.16em] hover:border-accent hover:text-accent transition">
               書籍を見る
             </a>
           </div>
-          <div class="grid grid-cols-3 gap-4 text-sm">
-            <div class="border-t border-white/15 pt-3">
-              <p class="text-white/50 en text-xs">Dates</p>
+
+          <div class="grid grid-cols-3 gap-4 text-sm border-t border-white/15 pt-6">
+            <div>
+              <p class="text-white/50 en text-xs mb-1">Dates</p>
               <p class="font-heading tracking-[0.08em]">2026.1.24 - 2.1</p>
             </div>
-            <div class="border-t border-white/15 pt-3">
-              <p class="text-white/50 en text-xs">Venue</p>
+            <div>
+              <p class="text-white/50 en text-xs mb-1">Venue</p>
               <p class="font-heading tracking-[0.08em]">下北沢 ADRIFT</p>
             </div>
-            <div class="border-t border-white/15 pt-3">
-              <p class="text-white/50 en text-xs">Hours</p>
+            <div>
+              <p class="text-white/50 en text-xs mb-1">Hours</p>
               <p class="font-heading tracking-[0.08em]">10:30 - 21:00</p>
             </div>
           </div>
         </div>
-        <div class="md:col-span-5 md:pl-6 fade-up is-visible">
+
+        <div class="md:col-span-5 md:pl-6 fade-up">
           <div class="relative isolate">
             <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#cc0000]/20 to-[#050505] blur-3xl"></div>
             <div class="relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur glow">
@@ -236,7 +244,7 @@
             <p class="en text-xs text-white/50 tracking-[0.28em]">Gallery</p>
             <h2 class="text-3xl md:text-4xl">炎の余韻を、切り取る。</h2>
             <p class="text-white/70 max-w-2xl">
-              まっすぐな視線、静かな緊張。写真はすべて会場に響く温度を帯びるよう、赤い光をひそませて並べました。スクロールで滑らかに流れるメゾン風マス目。
+              まっすぐな視線、静かな緊張。写真はすべて会場に響く温度を帯びるよう、赤い光をひそませて並べました。
             </p>
           </div>
           <span class="hidden md:inline-flex en text-sm tracking-[0.26em] text-accent">BORN TO BLAZE</span>
@@ -272,55 +280,58 @@
             <p class="en text-xs text-white/50 tracking-[0.28em]">Tickets</p>
             <h2 class="text-3xl md:text-4xl">炎を纏う一枚を、あなたに。</h2>
           </div>
-          <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="px-7 py-3 rounded-full bg-white text-base text-base font-semibold text-black tracking-[0.12em] hover:scale-[1.01] transition shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+          <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="px-7 py-3 rounded-full bg-white text-base font-semibold text-black tracking-[0.12em] hover:scale-[1.01] transition shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
             チケット購入はこちら
           </a>
         </div>
 
         <div class="grid lg:grid-cols-[1.2fr_0.8fr] gap-10">
-          <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur space-y-6">
+          <div class="p-8 rounded-3xl border border-white/10 bg-white/5 backdrop-blur space-y-8">
             <div class="grid sm:grid-cols-2 gap-6">
               <div class="border border-white/10 rounded-2xl p-6 bg-black/30">
-                <p class="text-sm text-white/60">入場特典</p>
-                <p class="text-xl font-heading mt-2 leading-relaxed">紙チケット / 自己分析シート</p>
-              </div>
-              <div class="border border-white/10 rounded-2xl p-6 bg-black/30">
                 <p class="text-sm text-white/60">販売開始</p>
-                <p class="text-xl font-heading mt-2 leading-relaxed">2025年12月10日（水）19:00〜</p>
+                <p class="text-xl font-heading mt-2 leading-relaxed">2025年12月10日（水）<br>19:00〜</p>
                 <p class="text-xs text-white/50 mt-2">先着制・予定枚数で終了</p>
               </div>
-            </div>
-            <div class="grid md:grid-cols-2 gap-4 text-sm">
-              <div class="border border-white/10 rounded-2xl p-5 bg-gradient-to-br from-white/5 to-transparent">
-                <p class="text-white/60 mb-2">通常</p>
-                <p class="font-heading text-lg">一般：2,000円</p>
-                <p class="font-heading text-lg">学生：1,500円 <span class="text-xs text-white/50">(高校生以下)</span></p>
-              </div>
-              <div class="border border-white/10 rounded-2xl p-5 bg-gradient-to-br from-accent/15 to-transparent">
-                <p class="text-white/60 mb-2">ステッカー特典付き</p>
-                <p class="font-heading text-lg">一般：2,500円</p>
-                <p class="font-heading text-lg">学生：2,000円 <span class="text-xs text-white/50">(高校生以下)</span></p>
+              <div class="border border-white/10 rounded-2xl p-6 bg-black/30">
+                <p class="text-sm text-white/60">入場特典</p>
+                <p class="text-xl font-heading mt-2 leading-relaxed">紙チケット<br>自己分析シート</p>
               </div>
             </div>
-            <p class="text-xs text-white/60">※小学生以下無料</p>
-            <div class="grid md:grid-cols-2 gap-6">
-              <div>
-                <p class="text-sm text-white/60">入場案内</p>
-                <p class="text-base mt-2 text-white/80 leading-relaxed">
-                  完全日時指定制。入場区分10分前に会場前に集合ください。<br>
-                  会場：下北沢 ADRIFT（東京都世田谷区北沢3丁目9-23）
-                </p>
+
+            <div class="space-y-4">
+              <div class="border border-white/10 rounded-2xl p-5 bg-gradient-to-br from-white/5 to-transparent flex flex-col sm:flex-row justify-between items-baseline gap-2">
+                <div>
+                  <p class="text-white/60 mb-1">通常チケット</p>
+                  <p class="text-xs text-white/50">小学生以下無料</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-heading text-lg">一般：2,000円</p>
+                  <p class="font-heading text-lg">学生：1,500円 <span class="text-xs text-white/50">(高校生以下)</span></p>
+                </div>
               </div>
-              <div>
-                <p class="text-sm text-white/60">配布スケジュール</p>
-                <ul class="text-base mt-2 space-y-1 text-white/80">
-                  <li>第1弾：1月24日〜1月28日／ランダム1枚</li>
-                  <li>第2弾：1月29日〜2月1日／ランダム1枚</li>
-                </ul>
-                <p class="text-xs text-white/50 mt-2">特典付きチケットのみ／種類は選べません。</p>
+              <div class="border border-accent/30 rounded-2xl p-5 bg-gradient-to-br from-accent/10 to-transparent flex flex-col sm:flex-row justify-between items-baseline gap-2 relative overflow-hidden">
+                <div class="absolute top-0 right-0 p-1 px-2 bg-accent text-[10px] text-white">RECOMMEND</div>
+                <div>
+                  <p class="text-white/90 mb-1 font-semibold">ステッカー特典付き</p>
+                  <p class="text-xs text-white/60">全4種ランダム配布 / 数量限定</p>
+                </div>
+                <div class="text-right">
+                  <p class="font-heading text-lg">一般：2,500円</p>
+                  <p class="font-heading text-lg">学生：2,000円 <span class="text-xs text-white/50">(高校生以下)</span></p>
+                </div>
               </div>
+            </div>
+            
+            <div class="text-sm text-white/70 bg-black/20 p-4 rounded-xl border border-white/5">
+               <p class="mb-1 text-white/50 text-xs">配布スケジュール（特典付きチケットのみ）</p>
+               <ul class="space-y-1">
+                  <li><span class="text-accent">第1弾</span>：1月24日〜1月28日／ランダム1枚</li>
+                  <li><span class="text-accent">第2弾</span>：1月29日〜2月1日／ランダム1枚</li>
+               </ul>
             </div>
           </div>
+
           <div class="p-7 rounded-3xl border border-white/10 bg-black/40 backdrop-blur space-y-5">
             <p class="text-sm text-white/60">特典ステッカー（全4種）</p>
             <div class="grid grid-cols-2 gap-4">
@@ -385,7 +396,7 @@
             「読むだけで終わらせず、読んだ人の人生を変えたい」。その切実な願いが行間に迸り、現代の“聖書”とも言うべき熱量であなたの命に火を灯す。
           </p>
           <div class="mt-6 flex flex-wrap gap-4">
-            <a href="https://www.kodansha.co.jp/book/products/0000417545" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-accent to-[#ff1a1a] text-sm tracking-[0.14em] en shadow-[0_18px_50px_rgba(204,0,0,0.45)] hover:translate-y-[-1px] transition">
+            <a href="https://www.kodansha.co.jp/book/products/0000417545" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-accent to-[#ff1a1a] text-sm tracking-[0.14em] en shadow-[0_18px_50px_rgba(204,0,0,0.45)] hover:translate-y-[-1px] transition text-white">
               書籍購入はこちら
             </a>
             <a href="https://www.hanmoto.com/bd/search/top?author=%E9%88%B4%E6%9C%A8%E5%A4%A7%E9%A3%9B" target="_blank" class="px-5 py-3 rounded-full border border-white/20 text-sm en tracking-[0.12em] hover:border-accent hover:text-accent transition">
@@ -409,56 +420,49 @@
         <div class="flex items-center justify-between gap-4">
           <div>
             <p class="en text-xs text-white/50 tracking-[0.28em]">Information</p>
-            <h2 class="text-3xl md:text-4xl">開催情報</h2>
+            <h2 class="text-3xl md:text-4xl">開催情報・注意事項</h2>
           </div>
           <span class="hidden md:inline-flex en text-xs tracking-[0.24em] text-white/40">DETAILS</span>
         </div>
-        <div class="grid lg:grid-cols-3 gap-6">
-          <div class="lg:col-span-2 space-y-6">
-            <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
-              <h3 class="text-xl mb-3">開催概要</h3>
-              <dl class="grid sm:grid-cols-2 gap-x-6 gap-y-3 text-sm leading-relaxed">
-                <dt class="text-white/60">展示名</dt><dd>命の燃やし方展　YAMATO SUZUKI：BORN TO BLAZE</dd>
-                <dt class="text-white/60">期間</dt><dd>2026年1月24日（土）～ 2026年2月1日（日）</dd>
-                <dt class="text-white/60">時間</dt><dd>10:30 ～ 21:00（最終入場 20:00）</dd>
-                <dt class="text-white/60">会場</dt><dd>下北沢 ADRIFT（東京都世田谷区北沢3丁目9-23）</dd>
-              </dl>
+        
+        <div class="grid lg:grid-cols-2 gap-6">
+          <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
+            <h3 class="text-xl mb-3">入場時間（全日共通）</h3>
+            <p class="text-sm text-white/60 mb-4">完全日時指定制 / 各回30分毎 / 入場区分10分前に会場前に集合</p>
+            <div class="grid grid-cols-3 sm:grid-cols-4 gap-2 text-sm">
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">10:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">11:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">11:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">12:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">12:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">13:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">13:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">14:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">14:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">15:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">15:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">16:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">16:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">17:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">17:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">18:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">18:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">19:00</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">19:30</span>
+              <span class="px-2 py-2 rounded-lg bg-black/40 border border-white/10 text-center text-xs sm:text-sm">20:00</span>
             </div>
-            <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
-              <h3 class="text-xl mb-3">入場時間（全日共通）</h3>
-              <p class="text-sm text-white/60 mb-2">完全日時指定制 / 各回30分毎</p>
-              <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-2 text-sm">
-                <span class="px-3 py-2 rounded-lg bg-black/40 border border-white/10 text-center">10:30 / 11:00 / 11:30</span>
-                <span class="px-3 py-2 rounded-lg bg-black/40 border border-white/10 text-center">12:00 / 12:30 / 13:00</span>
-                <span class="px-3 py-2 rounded-lg bg-black/40 border border-white/10 text-center">13:30 / 14:00 / 14:30</span>
-                <span class="px-3 py-2 rounded-lg bg-black/40 border border-white/10 text-center">15:00 / 15:30 / 16:00</span>
-                <span class="px-3 py-2 rounded-lg bg-black/40 border border-white/10 text-center">16:30 / 17:00 / 17:30</span>
-                <span class="px-3 py-2 rounded-lg bg-black/40 border border-white/10 text-center">18:00 / 18:30 / 19:00</span>
-                <span class="px-3 py-2 rounded-lg bg-black/40 border border-white/10 text-center">19:30 / 20:00</span>
-              </div>
-            </div>
+          </div>
+
+          <div class="space-y-6">
             <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
               <h3 class="text-xl mb-3">注意事項</h3>
-              <ul class="space-y-2 text-sm text-white/75 leading-relaxed">
+              <ul class="space-y-2 text-sm text-white/75 leading-relaxed list-disc list-inside marker:text-accent">
                 <li>チケット決済後のキャンセル・日時変更不可。チケット紛失時の再発行不可。</li>
-                <li>各回の案内時間は当日の状況により前後する場合があります。</li>
                 <li>チケット記載の日付・入場時刻のみ有効。当日券は原則なし（残枠のみチケットぴあで購入可）。</li>
                 <li>再入場不可。場内展示物への接触は禁止。飲食・喫煙不可。</li>
                 <li>全エリア写真・動画撮影可（私的利用に限る）。商用利用不可。</li>
+                <li>障がい者手帳提示で付き添い1名まで無料同伴可。</li>
                 <li>混雑時はお待ちいただく場合があります。スタッフの指示に従ってください。</li>
-              </ul>
-            </div>
-          </div>
-          <div class="space-y-6">
-            <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
-              <h3 class="text-xl mb-3">チケット概要</h3>
-              <ul class="space-y-2 text-sm text-white/80 leading-relaxed">
-                <li>一般：2,000円 / 学生：1,500円（高校生以下）</li>
-                <li>【ステッカー特典付き】一般：2,500円 / 学生：2,000円（高校生以下）</li>
-                <li>入場特典：紙チケット / 自己分析シート</li>
-                <li>特典付き：オリジナルステッカー（全4種）をランダム配布</li>
-                <li>障がい者手帳提示で付き添い1名まで無料同伴可</li>
-                <li>小学生以下無料</li>
               </ul>
             </div>
             <div class="p-6 rounded-2xl border border-white/10 bg-white/5">
