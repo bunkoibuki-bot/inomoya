@@ -493,5 +493,66 @@
     }, { threshold: 0.2 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
+
+  <div id="auth-overlay" class="fixed inset-0 z-[100] bg-[#050505] flex items-center justify-center p-4">
+    <div class="w-full max-w-sm space-y-8 text-center fade-up is-visible">
+      <div class="space-y-2">
+        <p class="text-accent text-sm tracking-[0.2em] font-en uppercase">Restricted Access</p>
+        <h2 class="text-2xl font-heading text-white">関係者確認用</h2>
+        <p class="text-xs text-white/50">IDとパスワードを入力して入室してください</p>
+      </div>
+      <form id="auth-form" class="space-y-4">
+        <div class="space-y-2">
+          <input type="text" id="input-id" placeholder="ID" 
+            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-accent transition text-center tracking-wider">
+          <input type="password" id="input-pass" placeholder="PASSWORD" 
+            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-accent transition text-center tracking-wider">
+        </div>
+        <button type="submit" 
+          class="w-full bg-gradient-to-r from-accent to-[#ff1a1a] text-white py-3 rounded-lg font-en tracking-[0.1em] text-sm hover:opacity-90 transition shadow-[0_0_20px_rgba(204,0,0,0.3)]">
+          ENTER
+        </button>
+        <p id="error-msg" class="text-accent text-xs hidden">IDまたはパスワードが間違っています</p>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // ▼▼▼ ここでIDとパスワードを設定してください ▼▼▼
+    const VALID_ID = "admin";
+    const VALID_PASS = "1234";
+    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
+    const authOverlay = document.getElementById('auth-overlay');
+    const authForm = document.getElementById('auth-form');
+    const errorMsg = document.getElementById('error-msg');
+    const body = document.body;
+
+    body.style.overflow = 'hidden';
+
+    if (sessionStorage.getItem('isAuth') === 'true') {
+      authOverlay.style.display = 'none';
+      body.style.overflow = '';
+    }
+
+    authForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const inputId = document.getElementById('input-id').value;
+      const inputPass = document.getElementById('input-pass').value;
+
+      if (inputId === VALID_ID && inputPass === VALID_PASS) {
+        authOverlay.style.transition = 'opacity 0.5s ease';
+        authOverlay.style.opacity = '0';
+        setTimeout(() => {
+          authOverlay.style.display = 'none';
+          body.style.overflow = '';
+        }, 500);
+        sessionStorage.setItem('isAuth', 'true');
+      } else {
+        errorMsg.classList.remove('hidden');
+        authForm.reset();
+      }
+    });
+  </script>
 </body>
 </html>
