@@ -130,6 +130,18 @@
       transform: scale(1.03);
       box-shadow: 0 18px 60px rgba(204, 0, 0, 0.35);
     }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.2rem;
+    }
+    .gallery-frame {
+      background: linear-gradient(135deg, rgba(255,255,255,0.02), rgba(204,0,0,0.05));
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+    }
   </style>
 </head>
 <body class="relative">
@@ -139,11 +151,7 @@
   <header class="fixed top-0 left-0 right-0 z-50 nav-blur">
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-full bg-gradient-to-b from-accent to-[#7a0000] grid place-items-center text-xs font-semibold tracking-[0.2em] text-white">BTB</div>
-        <div>
-          <p class="text-xs uppercase text-gray-300 en">born to blaze</p>
-          <p class="text-sm font-heading tracking-[0.14em]">命の燃やし方展</p>
-        </div>
+        <img src="./logo.jpg" alt="Born to Blaze ロゴ" class="h-10 w-auto rounded-sm shadow-lg">
       </div>
       <nav class="hidden md:flex items-center gap-6 text-sm uppercase tracking-[0.18em] en">
         <a class="hover:text-accent transition-colors" href="#concept">Concept</a>
@@ -163,17 +171,17 @@
   <main class="relative z-10">
     <section id="hero" class="min-h-screen relative flex items-end">
       <img src="./KV.jpg" alt="命の燃やし方展 キービジュアル" class="absolute inset-0 w-full h-full object-cover hero-kv">
-      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-[#050505]/70 to-[#050505]"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-[#050505]/70 to-[#050505]"></div>
       
-      <div class="max-w-6xl mx-auto px-6 w-full relative py-28 md:py-32 grid md:grid-cols-12 gap-10 items-center">
-        <div class="md:col-span-7 space-y-6 fade-up">
+      <div class="max-w-6xl mx-auto px-6 w-full relative py-28 md:py-32 grid md:grid-cols-12 gap-10 items-end">
+        <div class="md:col-span-8 space-y-6 fade-up">
           <p class="en text-sm text-white/70">YAMATO SUZUKI</p>
           <h1 class="text-4xl md:text-5xl leading-tight tracking-wide">
             命の燃やし方展<br>
             <span class="text-2xl md:text-3xl text-accent en block mt-2">BORN TO BLAZE</span>
           </h1>
           <p class="text-lg leading-relaxed text-white/80 max-w-3xl">
-            枠に捉われない挑戦を重ねてきた鈴木大飛。その人生観と熱量を、「漆黒」と「赤」の空間に封じ込める。ページをめくるように、言葉と光があなたの命へ火を灯す。
+            2025年8月に東京「LAIDOUT SHIBUYA」での展示会を皮切りに、同年11月には大阪「心斎橋OPA」へと巡回した『命の燃やし方展』。 そして2026年1月、本展は再び東京――「下北沢 ADRIFT」での開催が決定。
           </p>
           
           <div class="flex flex-wrap gap-4 py-4">
@@ -201,17 +209,7 @@
           </div>
         </div>
 
-        <div class="md:col-span-5 md:pl-6 fade-up">
-          <div class="relative isolate p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur glow">
-            <p class="en text-xs uppercase tracking-[0.28em] text-white/70">Statement</p>
-            <p class="mt-4 text-sm leading-relaxed text-white/80">
-              2018年、YouTubeに彗星のごとくあらわれたコムドット。そのリーダー・やまとが掲げ続ける“有言実行”。夢を追いかけることに命を燃やしてきた鈴木大飛としてのメッセージを、光と影で描き出す。
-            </p>
-            <p class="mt-4 text-sm text-white/60">
-              #命の燃やし方展
-            </p>
-          </div>
-        </div>
+        <div class="md:col-span-4"></div>
       </div>
       <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-xs en tracking-[0.3em] text-accent scroll-indicator pb-20">SCROLL</div>
     </section>
@@ -220,14 +218,14 @@
       <div class="absolute inset-0 bg-gradient-to-b from-[#0b0b0b] via-[#050505] to-[#050505]"></div>
       <div class="max-w-5xl mx-auto px-6 py-16 md:py-20 relative space-y-6 fade-up">
         <h2 class="text-2xl md:text-3xl font-heading tracking-wide">INTRODUCTION</h2>
-        <p class="text-lg text-white/85 leading-relaxed">
-          枠に捉われない活動を展開し続けるクリエイター集団「コムドット」のリーダー、やまと。ドラマ出演や楽曲デビュー、東京ドームでのCreator Dream Fes開催まで、言葉で示した未来を現実に変えてきた。
+        <p class="text-base text-white/85 leading-relaxed">
+          2018年、YouTubeに彗星のごとくあらわれたクリエイター集団「コムドット」のリーダー、やまと。 “有言実行”を掲げ、動画制作・配信にとどまらずドラマ出演や冠番組の放送、楽曲デビュー、映像クリエイターが一同に会する「Creator Dream Fes」を2年連続東京ドームで開催するなど、枠に捉われない活動を展開してきた。
         </p>
         <p class="text-base text-white/75 leading-relaxed">
-          2025年8月27日発売『命の燃やし方』では、“コムドットやまと”ではなく一人の青年・鈴木大飛として、夢と人生観を熱い筆致で綴る。8月の渋谷「LAIDOUT SHIBUYA」から、11月の大阪「心斎橋OPA」へと巡回した展示が、2026年1月、深化した形で東京「下北沢 ADRIFT」に帰還。
+          2025年8月27日発売の新刊『命の燃やし方』には、そんな“コムドットやまと”としてではなく、夢を追いかけることに命を燃やしてきた1人の青年・鈴木大飛としての人生観、そして1度でも夢を抱いたことがあるすべての人へ向けたメッセージが熱い筆致で綴られている。
         </p>
-        <p class="text-base text-white/65 leading-relaxed">
-          ページをめくるように進む空間で、彼が込めたメッセージと向き合う時間を。心ゆくまで、命の温度を確かめてほしい。
+        <p class="text-base text-white/70 leading-relaxed">
+          2025年8月に東京「LAIDOUT SHIBUYA」での展示会を皮切りに、同年11月には大阪「心斎橋OPA」へと巡回した『命の燃やし方展』。 そして2026年1月、本展は再び東京――「下北沢 ADRIFT」での開催が決定。 2度目の東京開催となる今回は、ただ戻るのではなく、著書『命の燃やし方』をより深く味わえる特別な展示会へと進化。 ページをめくるように進む空間で、大飛氏が『命の燃やし方』に込めたメッセージと向き合う時間を、心ゆくまで感じてほしい。
         </p>
       </div>
     </section>
@@ -235,32 +233,25 @@
     <section id="gallery" class="relative py-20 md:py-24">
       <div class="max-w-6xl mx-auto px-6 space-y-10">
         <div class="flex items-baseline justify-between gap-6">
-          <div class="space-y-3">
-            <p class="en text-xs text-white/50 tracking-[0.28em]">Gallery</p>
-            <h2 class="text-3xl md:text-4xl">炎の余韻を、切り取る。</h2>
-            <p class="text-white/70 max-w-2xl">
-              まっすぐな視線、静かな緊張。写真はすべて会場に響く温度を帯びるよう、赤い光をひそませて並べました。
-            </p>
-          </div>
-          <span class="hidden md:inline-flex en text-sm tracking-[0.26em] text-accent">BORN TO BLAZE</span>
+          <p class="en text-xs text-white/60 tracking-[0.28em]">GALLERY</p>
         </div>
-        <div class="masonry">
-          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
+        <div class="gallery-grid">
+          <figure class="gallery-frame">
             <img src="./photo1.jpg" alt="展示風景 1">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
+          <figure class="gallery-frame">
             <img src="./photo2.jpg" alt="展示風景 2">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
+          <figure class="gallery-frame">
             <img src="./photo3.jpg" alt="展示風景 3">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
+          <figure class="gallery-frame">
             <img src="./photo4.jpg" alt="展示風景 4">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
+          <figure class="gallery-frame">
             <img src="./photo5.jpg" alt="展示風景 5">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
+          <figure class="gallery-frame">
             <img src="./photo6.jpg" alt="展示風景 6">
           </figure>
         </div>
