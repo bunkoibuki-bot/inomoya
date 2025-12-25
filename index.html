@@ -91,10 +91,6 @@
       transition: transform 1.4s ease;
     }
     .masonry-item:hover img { transform: scale(1.05); }
-    .vertical-text {
-      writing-mode: vertical-rl;
-      letter-spacing: 0.22em;
-    }
     .scroll-indicator::before {
       content: "";
       position: absolute;
@@ -121,6 +117,18 @@
       backdrop-filter: blur(10px);
       background: rgba(5, 5, 5, 0.7);
       border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .hero-kv {
+      filter: brightness(1.05) contrast(1.08);
+    }
+    .gallery-frame img {
+      filter: grayscale(60%) saturate(0.6);
+      transition: transform 1.2s ease, filter 0.9s ease, box-shadow 0.9s ease;
+    }
+    .gallery-frame:hover img {
+      filter: grayscale(0%) saturate(1.2) brightness(1.05);
+      transform: scale(1.03);
+      box-shadow: 0 18px 60px rgba(204, 0, 0, 0.35);
     }
   </style>
 </head>
@@ -153,9 +161,9 @@
   </header>
 
   <main class="relative z-10">
-    <section id="hero" class="min-h-screen relative flex items-center">
-      <img src="./KV.jpg" alt="命の燃やし方展 キービジュアル" class="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-70">
-      <div class="absolute inset-0 bg-gradient-to-b from-black via-[#050505]/70 to-[#050505]"></div>
+    <section id="hero" class="min-h-screen relative flex items-end">
+      <img src="./KV.jpg" alt="命の燃やし方展 キービジュアル" class="absolute inset-0 w-full h-full object-cover hero-kv">
+      <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-[#050505]/70 to-[#050505]"></div>
       
       <div class="max-w-6xl mx-auto px-6 w-full relative py-28 md:py-32 grid md:grid-cols-12 gap-10 items-center">
         <div class="md:col-span-7 space-y-6 fade-up">
@@ -194,20 +202,14 @@
         </div>
 
         <div class="md:col-span-5 md:pl-6 fade-up">
-          <div class="relative isolate">
-            <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#cc0000]/20 to-[#050505] blur-3xl"></div>
-            <div class="relative p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur glow">
-              <div class="flex justify-between items-start">
-                <p class="en text-xs uppercase tracking-[0.28em] text-white/70">Statement</p>
-                <span class="vertical-text text-white/50 text-sm">言葉は、命を燃やす燃料だ。</span>
-              </div>
-              <p class="mt-4 text-sm leading-relaxed text-white/80">
-                2018年、YouTubeに彗星のごとくあらわれたコムドット。そのリーダー・やまとが掲げ続ける“有言実行”。夢を追いかけることに命を燃やしてきた鈴木大飛としてのメッセージを、光と影で描き出す。
-              </p>
-              <p class="mt-4 text-sm text-white/60">
-                #命の燃やし方展
-              </p>
-            </div>
+          <div class="relative isolate p-6 rounded-3xl bg-white/5 border border-white/10 backdrop-blur glow">
+            <p class="en text-xs uppercase tracking-[0.28em] text-white/70">Statement</p>
+            <p class="mt-4 text-sm leading-relaxed text-white/80">
+              2018年、YouTubeに彗星のごとくあらわれたコムドット。そのリーダー・やまとが掲げ続ける“有言実行”。夢を追いかけることに命を燃やしてきた鈴木大飛としてのメッセージを、光と影で描き出す。
+            </p>
+            <p class="mt-4 text-sm text-white/60">
+              #命の燃やし方展
+            </p>
           </div>
         </div>
       </div>
@@ -216,24 +218,17 @@
 
     <section id="concept" class="relative overflow-hidden">
       <div class="absolute inset-0 bg-gradient-to-b from-[#0b0b0b] via-[#050505] to-[#050505]"></div>
-      <div class="max-w-6xl mx-auto px-6 py-20 md:py-24 relative grid md:grid-cols-12 gap-12 items-start">
-        <div class="md:col-span-4 flex md:flex-col gap-6">
-          <div class="h-32 w-px bg-gradient-to-b from-transparent via-white/30 to-accent mx-auto md:mx-0"></div>
-          <p class="vertical-text text-sm tracking-[0.24em] text-white/70">
-            生き方は、言葉で編まれる。燃やしたい命があるなら、内側の声に耳を澄ませること。
-          </p>
-        </div>
-        <div class="md:col-span-8 space-y-6 fade-up">
-          <p class="text-xl font-heading leading-relaxed">
-            枠に捉われない活動を展開し続けるクリエイター集団「コムドット」のリーダー、やまと。ドラマ出演や楽曲デビュー、東京ドームでのCreator Dream Fes開催まで、言葉で示した未来を現実に変えてきた。
-          </p>
-          <p class="text-base text-white/80 leading-relaxed">
-            2025年8月27日発売『命の燃やし方』では、“コムドットやまと”ではなく一人の青年・鈴木大飛として、夢と人生観を熱い筆致で綴る。8月の渋谷「LAIDOUT SHIBUYA」から、11月の大阪「心斎橋OPA」へと巡回した展示が、2026年1月、深化した形で東京「下北沢 ADRIFT」に帰還。
-          </p>
-          <p class="text-base text-white/70 leading-relaxed">
-            ページをめくるように進む空間で、彼が込めたメッセージと向き合う時間を。心ゆくまで、命の温度を確かめてほしい。
-          </p>
-        </div>
+      <div class="max-w-5xl mx-auto px-6 py-16 md:py-20 relative space-y-6 fade-up">
+        <h2 class="text-2xl md:text-3xl font-heading tracking-wide">INTRODUCTION</h2>
+        <p class="text-lg text-white/85 leading-relaxed">
+          枠に捉われない活動を展開し続けるクリエイター集団「コムドット」のリーダー、やまと。ドラマ出演や楽曲デビュー、東京ドームでのCreator Dream Fes開催まで、言葉で示した未来を現実に変えてきた。
+        </p>
+        <p class="text-base text-white/75 leading-relaxed">
+          2025年8月27日発売『命の燃やし方』では、“コムドットやまと”ではなく一人の青年・鈴木大飛として、夢と人生観を熱い筆致で綴る。8月の渋谷「LAIDOUT SHIBUYA」から、11月の大阪「心斎橋OPA」へと巡回した展示が、2026年1月、深化した形で東京「下北沢 ADRIFT」に帰還。
+        </p>
+        <p class="text-base text-white/65 leading-relaxed">
+          ページをめくるように進む空間で、彼が込めたメッセージと向き合う時間を。心ゆくまで、命の温度を確かめてほしい。
+        </p>
       </div>
     </section>
 
@@ -250,22 +245,22 @@
           <span class="hidden md:inline-flex en text-sm tracking-[0.26em] text-accent">BORN TO BLAZE</span>
         </div>
         <div class="masonry">
-          <figure class="masonry-item bg-white/5 border border-white/10">
+          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
             <img src="./photo1.jpg" alt="展示風景 1">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10">
+          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
             <img src="./photo2.jpg" alt="展示風景 2">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10">
+          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
             <img src="./photo3.jpg" alt="展示風景 3">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10">
+          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
             <img src="./photo4.jpg" alt="展示風景 4">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10">
+          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
             <img src="./photo5.jpg" alt="展示風景 5">
           </figure>
-          <figure class="masonry-item bg-white/5 border border-white/10">
+          <figure class="masonry-item bg-white/5 border border-white/10 gallery-frame">
             <img src="./photo6.jpg" alt="展示風景 6">
           </figure>
         </div>
