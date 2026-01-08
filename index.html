@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>命の燃やし方展 | Born to Blaze</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.tailwindcss.com; connect-src 'self';">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700&family=Cinzel:wght@600;700&family=Oswald:wght@500&family=Noto+Sans+JP:wght@400;600&display=swap" rel="stylesheet">
@@ -169,7 +170,7 @@
         <a class="hover:text-accent transition-colors" href="#book">Book</a>
         <a class="hover:text-accent transition-colors" href="#info">Info</a>
       </nav>
-      <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.18em] hover:translate-y-[-1px] transition text-white">
+      <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.18em] hover:translate-y-[-1px] transition text-white">
         Ticket
         <span aria-hidden="true">→</span>
       </a>
@@ -193,7 +194,7 @@
           </p>
           
           <div class="flex flex-wrap gap-4 py-4">
-            <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.16em] shadow-[0_15px_45px_rgba(204,0,0,0.45)] hover:translate-y-[-1px] transition text-white">
+            <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" rel="noopener noreferrer" class="px-6 py-3 rounded-full bg-gradient-to-r from-accent to-[#ff1a1a] text-sm en tracking-[0.16em] shadow-[0_15px_45px_rgba(204,0,0,0.45)] hover:translate-y-[-1px] transition text-white">
               チケット購入はこちら
             </a>
             <a href="#book" class="px-6 py-3 rounded-full border border-white/30 text-sm en tracking-[0.16em] hover:border-accent hover:text-accent transition">
@@ -277,7 +278,7 @@
             <p class="en text-xs text-white/50 tracking-[0.28em]">Tickets</p>
             <h2 class="text-3xl md:text-4xl">炎を纏う一枚を、あなたに。</h2>
           </div>
-          <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" class="px-7 py-3 rounded-full bg-white text-base font-semibold text-black tracking-[0.12em] hover:scale-[1.01] transition shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+          <a href="https://t.pia.jp/pia/events/born-to-blaze/" target="_blank" rel="noopener noreferrer" class="px-7 py-3 rounded-full bg-white text-base font-semibold text-black tracking-[0.12em] hover:scale-[1.01] transition shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
             チケット購入はこちら
           </a>
         </div>
@@ -396,7 +397,7 @@
             <a href="https://www.kodansha.co.jp/book/products/0000417545" target="_blank" class="px-6 py-3 rounded-full bg-gradient-to-r from-accent to-[#ff1a1a] text-sm tracking-[0.14em] en shadow-[0_18px_50px_rgba(204,0,0,0.45)] hover:translate-y-[-1px] transition text-white">
               書籍購入はこちら
             </a>
-            <a href="https://www.hanmoto.com/bd/search/top?author=%E9%88%B4%E6%9C%A8%E5%A4%A7%E9%A3%9B" target="_blank" class="px-5 py-3 rounded-full border border-white/20 text-sm en tracking-[0.12em] hover:border-accent hover:text-accent transition">
+            <a href="https://www.hanmoto.com/bd/search/top?author=%E9%88%B4%E6%9C%A8%E5%A4%A7%E9%A3%9B" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-full border border-white/20 text-sm en tracking-[0.12em] hover:border-accent hover:text-accent transition">
               著者プロフィール
             </a>
           </div>
@@ -466,7 +467,7 @@
               <h3 class="text-xl mb-3">お問い合わせ</h3>
               <div class="space-y-3 text-sm text-white/80">
                 <p>展示会に関するお問い合わせ<br><a class="text-accent hover:underline break-all" href="mailto:popupnext-customer@gymnopedie.biz">popupnext-customer@gymnopedie.biz</a></p>
-                <p>チケットに関するお問い合わせ<br><a class="text-accent hover:underline" href="https://t.pia.jp/help/index.jsp" target="_blank">https://t.pia.jp/help/index.jsp</a></p>
+                <p>チケットに関するお問い合わせ<br><a class="text-accent hover:underline" href="https://t.pia.jp/help/index.jsp" target="_blank" rel="noopener noreferrer">https://t.pia.jp/help/index.jsp</a></p>
               </div>
             </div>
           </div>
@@ -494,65 +495,5 @@
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
   </script>
 
-  <div id="auth-overlay" class="fixed inset-0 z-[100] bg-[#050505] flex items-center justify-center p-4">
-    <div class="w-full max-w-sm space-y-8 text-center fade-up is-visible">
-      <div class="space-y-2">
-        <p class="text-accent text-sm tracking-[0.2em] font-en uppercase">Restricted Access</p>
-        <h2 class="text-2xl font-heading text-white">関係者確認用</h2>
-        <p class="text-xs text-white/50">IDとパスワードを入力して入室してください</p>
-      </div>
-      <form id="auth-form" class="space-y-4">
-        <div class="space-y-2">
-          <input type="text" id="input-id" placeholder="ID" 
-            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-accent transition text-center tracking-wider">
-          <input type="password" id="input-pass" placeholder="PASSWORD" 
-            class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-accent transition text-center tracking-wider">
-        </div>
-        <button type="submit" 
-          class="w-full bg-gradient-to-r from-accent to-[#ff1a1a] text-white py-3 rounded-lg font-en tracking-[0.1em] text-sm hover:opacity-90 transition shadow-[0_0_20px_rgba(204,0,0,0.3)]">
-          ENTER
-        </button>
-        <p id="error-msg" class="text-accent text-xs hidden">IDまたはパスワードが間違っています</p>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    // ▼▼▼ ここでIDとパスワードを設定してください ▼▼▼
-    const VALID_ID = "admin";
-    const VALID_PASS = "1234";
-    // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
-
-    const authOverlay = document.getElementById('auth-overlay');
-    const authForm = document.getElementById('auth-form');
-    const errorMsg = document.getElementById('error-msg');
-    const body = document.body;
-
-    body.style.overflow = 'hidden';
-
-    if (sessionStorage.getItem('isAuth') === 'true') {
-      authOverlay.style.display = 'none';
-      body.style.overflow = '';
-    }
-
-    authForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const inputId = document.getElementById('input-id').value;
-      const inputPass = document.getElementById('input-pass').value;
-
-      if (inputId === VALID_ID && inputPass === VALID_PASS) {
-        authOverlay.style.transition = 'opacity 0.5s ease';
-        authOverlay.style.opacity = '0';
-        setTimeout(() => {
-          authOverlay.style.display = 'none';
-          body.style.overflow = '';
-        }, 500);
-        sessionStorage.setItem('isAuth', 'true');
-      } else {
-        errorMsg.classList.remove('hidden');
-        authForm.reset();
-      }
-    });
-  </script>
 </body>
 </html>
